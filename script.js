@@ -145,44 +145,6 @@
             history.pushState({ lang: lang }, '', newUrl.toString());
         }
 
-        function tampilkanWaktu(locale = 'en-US', timeZone = 'Asia/Makassar') {
-            const waktuElement = document.querySelector('.time-text');
-            const dateElement = document.querySelector('.date-text');
-
-            function updateWaktu() {
-                const sekarang = new Date();
-
-                const timeOptions = {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit',
-                    hour12: false,
-                    timeZone: timeZone
-                };
-
-                const dateOptions = {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    timeZone: timeZone
-                };
-
-                const waktuFormatted = sekarang.toLocaleTimeString(locale, timeOptions);
-                const tanggalFormatted = sekarang.toLocaleDateString(locale, dateOptions);
-
-                if (waktuElement) {
-                    waktuElement.textContent = waktuFormatted;
-                }
-                if (dateElement) {
-                    dateElement.textContent = tanggalFormatted;
-                }
-            }
-
-            updateWaktu();
-            setInterval(updateWaktu, 1000);
-        }
-
         function initCarousel() {
             if (window.innerWidth <= 768) {
                 const container = document.querySelector('.motor-section');
@@ -259,8 +221,6 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            tampilkanWaktu(navigator.language || 'id-ID', Intl.DateTimeFormat().resolvedOptions().timeZone);
-            
             initCarousel();
             initScrollButton();
             initScrollReveal();
