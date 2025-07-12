@@ -1,109 +1,266 @@
-function tampilkanWaktu() {
-    const waktuElement = document.querySelector('.time-text');
-    const dateElement = document.querySelector('.date-text');
-
-    function updateWaktu() {
-        const sekarang = new Date();
-        const jam = String(sekarang.getHours()).padStart(2, '0');
-        const menit = String(sekarang.getMinutes()).padStart(2, '0');
-        const detik = String(sekarang.getSeconds()).padStart(2, '0');
-
-        const options = {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
+        const translations = {
+            id: {
+                pageTitle: "Bali Rentals",
+                timeBaliText: "Bali",
+                navHome: "Beranda",
+                navVehicles: "Daftar Kendaraan",
+                navContact: "Kontak",
+                stickyButton: "Hubungi Sekarang",
+                stickyButtonHref: "https://wa.me/6281999919042?text=Halo%20Bali%20Rentals%2C%20saya%20ingin%20bertanya%20tentang%20penyewaan%20kendaraan%20Anda.",
+                heroHeading: "Bali Rentals",
+                heroParagraph: "Temukan kendaraan impian Anda untuk liburan di Bali.",
+                vehiclesSectionHeading: "Daftar Kendaraan",
+                motorbikesHeading: "Motor",
+                nmaxPrice: "Rp 170.000 / Hari",
+                nmaxDescription: "Tampil lebih keren dengan Yamaha NMAX",
+                nmaxBookBtn: "Pesan Sekarang",
+                nmaxBookBtnHref: "https://wa.me/6281999919042?text=Halo%2C%20saya%20ingin%20memesan%20Yamaha%20NMAX.",
+                scoopyPrice: "Rp 100.000 / Hari",
+                scoopyDescription: "Tampil lebih keren dengan Honda Scoopy",
+                scoopyBookBtn: "Pesan Sekarang",
+                scoopyBookBtnHref: "https://wa.me/6281999919042?text=Halo%2C%20saya%20ingin%20memesan%20Honda%20Scoopy.",
+                filanoPrice: "Rp 120.000 / Hari",
+                filanoDescription: "Tampil lebih keren dengan Yamaha Filano",
+                filanoBookBtn: "Pesan Sekarang",
+                filanoBookBtnHref: "https://wa.me/6281999919042?text=Halo%2C%20saya%20ingin%20memesan%20Yamaha%20Filano.",
+                varioPrice: "Rp 100.000 / Hari",
+                varioDescription: "Tampil lebih keren dengan Honda Vario",
+                varioBookBtn: "Pesan Sekarang",
+                varioBookBtnHref: "https://wa.me/6281999919042?text=Halo%2C%20saya%20ingin%20memesan%20Honda%20Vario.",
+                carsHeading: "Mobil",
+                agyaManualPrice: "Rp 250.000 / Hari",
+                agyaManualMonthlyPrice: "Rp 6.000.000 / Bulan",
+                agyaManualDescription: "Tampil lebih keren dengan Agya Manual",
+                agyaManualBookBtn: "Pesan Sekarang",
+                agyaManualBookBtnHref: "https://wa.me/6281999919042?text=Halo%2C%20saya%20ingin%20memesan%20Agya%20Manual.",
+                agyaMaticPrice: "Rp 300.000 / Hari",
+                agyaMaticMonthlyPrice: "Rp 6.700.000 / Bulan",
+                agyaMaticDescription: "Tampil lebih keren dengan Agya Matic",
+                agyaMaticBookBtn: "Pesan Sekarang",
+                agyaMaticBookBtnHref: "https://wa.me/6281999919042?text=Halo%2C%20saya%20ingin%20memesan%20Agya%20Matic.",
+                avanzaManualPrice: "Rp 400.000 / Hari",
+                avanzaManualMonthlyPrice: "Rp 9.000.000 / Bulan",
+                avanzaManualDescription: "Tampil lebih keren dengan Avanza",
+                avanzaManualBookBtn: "Pesan Sekarang",
+                avanzaManualBookBtnHref: "https://wa.me/6281999919042?text=Halo%2C%20saya%20ingin%20memesan%20Avanza%20Manual.",
+                aboutHeading: "Tentang Bali Rentals",
+                contactWhatsApp: "Kontak kami : +62 819-9991-9042",
+                contactEmail: "email kami : sutanta_85@yahoo.co.id",
+                aboutText: "Selamat datang di Bali Rentals, solusi transportasi terpercaya di Bali. Kami menyediakan motor dan mobil berkualitas dengan layanan cepat, mudah, dan dapat diandalkan. Kendaraan kami selalu terawat, menawarkan kenyamanan dan fleksibilitas dengan harga kompetitif. Pemesanan dapat dilakukan langsung melalui WhatsApp untuk respon cepat dan efisien. Nikmati perjalanan Anda di Bali dengan kendaraan terbaik dari Bali Rentals!",
+                bugReportText: "Jika ada Bug atau masalah, silahkan hubungi kami melalui WhatsApp",
+                creatorCredit: "&copy; Dibuat oleh Rafa",
+                creditLine: "Kredit: Dibuat oleh Rafa | Gambar di atas di dapat berbagai sumber di internet"
+            },
+            en: {
+                pageTitle: "Bali Rentals",
+                timeBaliText: "Bali",
+                navHome: "Home",
+                navVehicles: "Vehicle List",
+                navContact: "Contact",
+                stickyButton: "Contact Now",
+                stickyButtonHref: "https://wa.me/6281999919042?text=Hello%20Bali%20Rentals%2C%20I%20would%20like%20to%20inquire%20about%20your%20rentals.",
+                heroHeading: "Bali Rentals",
+                heroParagraph: "Find your dream vehicle for your Bali vacation.",
+                vehiclesSectionHeading: "Vehicle List",
+                motorbikesHeading: "Motorbikes",
+                nmaxPrice: "Rp 170.000 / Day",
+                nmaxDescription: "Look cooler with Yamaha NMAX",
+                nmaxBookBtn: "Book Now",
+                nmaxBookBtnHref: "https://wa.me/6281999919042?text=Hello%2C%20I%20want%20to%20book%20Yamaha%20NMAX.",
+                scoopyPrice: "Rp 100.000 / Day",
+                scoopyDescription: "Look cooler with Honda Scoopy",
+                scoopyBookBtn: "Book Now",
+                scoopyBookBtnHref: "https://wa.me/6281999919042?text=Hello%2C%20I%20want%20to%20book%20Honda%20Scoopy.",
+                filanoPrice: "Rp 120.000 / Day",
+                filanoDescription: "Look cooler with Yamaha Filano",
+                filanoBookBtn: "Book Now",
+                filanoBookBtnHref: "https://wa.me/6281999919042?text=Hello%2C%20I%20want%20to%20book%20Yamaha%20Filano.",
+                varioPrice: "Rp 100.000 / Day",
+                varioDescription: "Look cooler with Honda Vario",
+                varioBookBtn: "Book Now",
+                varioBookBtnHref: "https://wa.me/6281999919042?text=Hello%2C%20I%20want%20to%20book%20Honda%20Vario.",
+                carsHeading: "Cars",
+                agyaManualPrice: "Rp 250.000 / Day",
+                agyaManualMonthlyPrice: "Rp 6.000.000 / Month",
+                agyaManualDescription: "Look cooler with Agya Manual",
+                agyaManualBookBtn: "Book Now",
+                agyaManualBookBtnHref: "https://wa.me/6281999919042?text=Hello%2C%20I%20want%20to%20book%20Agya%20Manual.",
+                agyaMaticPrice: "Rp 300.000 / Day",
+                agyaMaticMonthlyPrice: "Rp 6.700.000 / Month",
+                agyaMaticDescription: "Look cooler with Agya Matic",
+                agyaMaticBookBtn: "Book Now",
+                agyaMaticBookBtnHref: "https://wa.me/6281999919042?text=Hello%2C%20I%20want%20to%20book%20Agya%20Matic.",
+                avanzaManualPrice: "Rp 400.000 / Day",
+                avanzaManualMonthlyPrice: "Rp 9.000.000 / Month",
+                avanzaManualDescription: "Look cooler with Avanza",
+                avanzaManualBookBtn: "Book Now",
+                avanzaManualBookBtnHref: "https://wa.me/6281999919042?text=Hello%2C%20I%20want%20to%20book%20Avanza%20Manual.",
+                aboutHeading: "About Bali Rentals",
+                contactWhatsApp: "Contact us : +62 819-9991-9042",
+                contactEmail: "email us : sutanta_85@yahoo.co.id",
+                aboutText: "Welcome to Bali Rentals, your trusted transportation solution in Bali. We provide quality motorbikes and cars with fast, easy, and reliable service. Our vehicles are always well-maintained, offering comfort and flexibility at competitive prices. Bookings can be made directly via WhatsApp for quick and efficient response. Enjoy your trip in Bali with the best vehicles from Bali Rentals!",
+                bugReportText: "If there are any bugs or issues, please contact us via WhatsApp",
+                creatorCredit: "&copy; Created by Rafa",
+                creditLine: "Credit: Created by Rafa | Images above are sourced from various internet sources"
+            }
         };
-        const tanggal = sekarang.toLocaleDateString('id-ID', options);
 
-        waktuElement.textContent = `${jam}:${menit}:${detik}`;
-        if (dateElement) {
-            dateElement.textContent = tanggal;
-        }
-    }
+        function applyTranslations(lang) {
+            document.documentElement.lang = lang;
 
-    updateWaktu();
-    setInterval(updateWaktu, 1000);
-}
+            for (const key in translations[lang]) {
+                const element = document.getElementById(key);
+                const hrefElement = document.getElementById(key);
 
-function initCarousel() {
-    if (window.innerWidth <= 768) {
-        const container = document.querySelector('.motor-section');
-        const items = document.querySelectorAll('.motor-item');
+                if (element && !key.endsWith('Href')) {
+                    if (key === 'creditLine') {
+                        document.querySelector('.credit').dataset.credit = translations[lang][key];
+                        document.querySelector('.credit').textContent = translations[lang][key];
+                    } else if (key === 'creatorCredit') {
+                        element.innerHTML = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
 
-        const updateItems = () => {
-            const containerRect = container.getBoundingClientRect();
-            const containerCenter = containerRect.left + containerRect.width / 2;
+                if (key.endsWith('Href')) {
+                    const originalId = key.replace('Href', '');
+                    const linkElement = document.getElementById(originalId);
+                    if (linkElement && translations[lang][key]) {
+                        linkElement.href = translations[lang][key];
+                    }
+                }
+            }
 
-            items.forEach(item => {
-                const itemRect = item.getBoundingClientRect();
-                const itemCenter = itemRect.left + itemRect.width / 2;
-                const distance = itemCenter - containerCenter;
-
-                item.classList.remove('is-previous', 'is-current', 'is-next');
-
-                if (Math.abs(distance) < itemRect.width * 0.5) {
-                    item.classList.add('is-current');
-                } else if (distance < 0) {
-                    item.classList.add('is-previous');
+            document.querySelectorAll('.lang-button').forEach(button => {
+                if (button.dataset.lang === lang) {
+                    button.classList.add('active');
                 } else {
-                    item.classList.add('is-next');
+                    button.classList.remove('active');
                 }
             });
-        };
 
-        container.addEventListener('scroll', updateItems);
-        window.addEventListener('resize', updateItems);
-        updateItems();
-    }
-}
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.set('lang', lang);
+            history.pushState({ lang: lang }, '', newUrl.toString());
+        }
 
-function initScrollButton() {
-    const scrollButton = document.querySelector('.sticky-button');
+        function tampilkanWaktu(locale = 'en-US', timeZone = 'Asia/Makassar') {
+            const waktuElement = document.querySelector('.time-text');
+            const dateElement = document.querySelector('.date-text');
 
-    if (scrollButton) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollButton.classList.remove('hidden');
-            } else {
-                scrollButton.classList.add('hidden');
+            function updateWaktu() {
+                const sekarang = new Date();
+
+                const timeOptions = {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false,
+                    timeZone: timeZone
+                };
+
+                const dateOptions = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    timeZone: timeZone
+                };
+
+                const waktuFormatted = sekarang.toLocaleTimeString(locale, timeOptions);
+                const tanggalFormatted = sekarang.toLocaleDateString(locale, dateOptions);
+
+                if (waktuElement) {
+                    waktuElement.textContent = waktuFormatted;
+                }
+                if (dateElement) {
+                    dateElement.textContent = tanggalFormatted;
+                }
             }
-        });
 
-        scrollButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+            updateWaktu();
+            setInterval(updateWaktu, 1000);
+        }
+
+        function initCarousel() {
+            if (window.innerWidth <= 768) {
+                const container = document.querySelector('.motor-section');
+                const items = document.querySelectorAll('.motor-item');
+
+                const updateItems = () => {
+                    const containerRect = container.getBoundingClientRect();
+                    const containerCenter = containerRect.left + containerRect.width / 2;
+
+                    items.forEach(item => {
+                        const itemRect = item.getBoundingClientRect();
+                        const itemCenter = itemRect.left + itemRect.width / 2;
+                        const distance = itemCenter - containerCenter;
+
+                        item.classList.remove('is-previous', 'is-current', 'is-next');
+
+                        if (Math.abs(distance) < itemRect.width * 0.5) {
+                            item.classList.add('is-current');
+                        } else if (distance < 0) {
+                            item.classList.add('is-previous');
+                        } else {
+                            item.classList.add('is-next');
+                        }
+                    });
+                };
+
+                container.addEventListener('scroll', updateItems);
+                window.addEventListener('resize', updateItems);
+                updateItems();
+            }
+        }
+
+        function initScrollButton() {
+            const scrollButton = document.querySelector('.sticky-button');
+
+            if (scrollButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        scrollButton.classList.remove('hidden');
+                    } else {
+                        scrollButton.classList.add('hidden');
+                    }
+                });
+
+                scrollButton.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        }
+
+        function initScrollReveal() {
+            const motorItems = document.querySelectorAll('.motor-item');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
             });
+
+            motorItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(50px)';
+                item.style.transition = 'all 0.6s ease-out';
+                observer.observe(item);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            tampilkanWaktu('id-ID', 'Asia/Makassar');
+            initCarousel();
+            initScrollButton();
+            initScrollReveal();
         });
-    }
-}
-
-function initScrollReveal() {
-    const motorItems = document.querySelectorAll('.motor-item');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
-    motorItems.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(50px)';
-        item.style.transition = 'all 0.6s ease-out';
-        observer.observe(item);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    tampilkanWaktu();
-    initCarousel();
-    initScrollButton();
-    initScrollReveal();
-});
