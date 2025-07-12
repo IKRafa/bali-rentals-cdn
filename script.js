@@ -259,8 +259,13 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            tampilkanWaktu('id-ID', 'Asia/Makassar');
+            tampilkanWaktu(navigator.language || 'id-ID', Intl.DateTimeFormat().resolvedOptions().timeZone);
+            
             initCarousel();
             initScrollButton();
             initScrollReveal();
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialLang = urlParams.get('lang') || 'id';
+            applyTranslations(initialLang);
         });
