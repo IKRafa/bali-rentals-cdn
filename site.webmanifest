@@ -2,12 +2,12 @@
     "name":"",
     "short_name":"",
     "icons":[{
-    "src":"/android-chrome-192x192.png",
+    "src":"https://rawcdn.githack.com/IKRafa/bali-rentals-cdn/10e62befc48fdc5f618077fe4ac821ada8be3670/android-chrome-192x192.webp",
     "sizes":"192x192",
     "type":"image/png"
     },
     {
-    "src":"/android-chrome-512x512.png",
+    "src":"https://rawcdn.githack.com/IKRafa/bali-rentals-cdn/10e62befc48fdc5f618077fe4ac821ada8be3670/android-chrome-512x512.webp",
     "sizes":"512x512",
     "type":"image/png"}],
     "theme_color":"#ffffff",
