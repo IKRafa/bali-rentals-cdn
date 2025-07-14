@@ -19,7 +19,7 @@ body {
 #Beranda {
     text-align: center;
     padding: 100px 0;
-    background: url(./Images/bg.webp) no-repeat center center;
+    background: url(./Images/bg.webp) no-repeat center center !important;
     background-size: cover;
     height: 100vh;
     color: #fff;
