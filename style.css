@@ -19,7 +19,7 @@ body {
 #Beranda {
     text-align: center;
     padding: 100px 0;
-    background: url(https://cdn.jsdelivr.net/gh/IKRafa/bali-rentals-cdn@main/bg.webp) no-repeat center center;
+    background: url(./Images/bg.webp) no-repeat center center;
     background-size: cover;
     height: 100vh;
     color: #fff;
@@ -47,16 +47,10 @@ body {
     font-size: 4em;
     font-weight: 700;
     margin-bottom: 20px;
-    opacity: 0;
-    animation: swipeRightToLeft 1s ease-out forwards;
-    animation-delay: 0s;
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 #Beranda p {
     font-size: 1.5em;
-    opacity: 0;
-    animation: swipeRightToLeft 1s ease-out forwards;
-    animation-delay: 0.5s;
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 #Daftar-Kendaraan {
@@ -64,16 +58,9 @@ body {
     text-align: center;
     background-color: #a1c4ca;
 }
-#Daftar-Kendaraan h2,
-#Daftar-Kendaraan h3,
-#Daftar-Kendaraan p {
-    opacity: 0;
-    animation: swipeRightToLeft 1s ease-out forwards;
-}
 #Daftar-Kendaraan h2 {
     font-size: 2em;
     margin-bottom: 20px;
-    animation-delay: 1s;
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 #motorbikesHeading,
@@ -85,9 +72,6 @@ footer {
     padding: 20px;
     background-color: #333;
     color: #fff;
-    opacity: 0;
-    animation: swipeRightToLeft 1s ease-out forwards;
-    animation-delay: 2.5s;
 }
 .motor-section {
     display: flex;
@@ -133,20 +117,13 @@ footer {
     object-fit: cover;
     border-radius: 15px;
 }
-.motor-item h3,
-.motor-item p {
-    opacity: 0;
-    animation: swipeRightToLeft 1s ease-out forwards;
-}
 .motor-item h3 {
     font-size: 1.2em;
     margin: 10px 0 5px;
-    animation-delay: 2s;
 }
 .motor-item p {
     font-size: 0.9em;
     color: #555;
-    animation-delay: 2.5s;
 }
 .motor-item .btn {
     margin-top: auto;
@@ -170,7 +147,6 @@ footer {
     box-shadow: 0 5px 15px rgb(0 188 212 / 0.4);
 }
 .sticky-button {
-    animation-delay: 3s;
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -195,16 +171,6 @@ footer {
 .sticky-button.hidden {
     opacity: 0;
     transform: translateY(20px);
-}
-@keyframes swipeRightToLeft {
-    0% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
 }
 img {
     will-change: transform, opacity;
